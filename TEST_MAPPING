@@ -2,15 +2,7 @@
 {
   "presubmit": [
     {
-      "host": true,
-      "name": "rand_xorshift_host_test_src_lib"
-    },
-    {
       "name": "rand_xorshift_device_test_src_lib"
-    },
-    {
-      "host": true,
-      "name": "rand_xorshift_host_test_tests_mod"
     },
     {
       "name": "rand_xorshift_device_test_tests_mod"
