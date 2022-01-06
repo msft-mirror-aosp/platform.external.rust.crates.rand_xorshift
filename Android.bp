@@ -42,65 +42,30 @@ rust_library {
     name: "librand_xorshift",
     host_supported: true,
     crate_name: "rand_xorshift",
+    cargo_env_compat: true,
+    cargo_pkg_version: "0.3.0",
     srcs: ["src/lib.rs"],
     edition: "2018",
     rustlibs: [
         "librand_core",
     ],
-}
-
-rust_defaults {
-    name: "rand_xorshift_defaults",
-    crate_name: "rand_xorshift",
-    srcs: ["src/lib.rs"],
-    test_suites: ["general-tests"],
-    auto_gen_config: true,
-    edition: "2018",
-    rustlibs: [
-        "librand_core",
-    ],
-}
-
-rust_test_host {
-    name: "rand_xorshift_host_test_src_lib",
-    defaults: ["rand_xorshift_defaults"],
-    test_options: {
-        unit_test: true,
-    },
 }
 
 rust_test {
-    name: "rand_xorshift_device_test_src_lib",
-    defaults: ["rand_xorshift_defaults"],
-}
-
-rust_defaults {
-    name: "rand_xorshift_defaults_mod",
+    name: "rand_xorshift_test_tests_mod",
+    host_supported: true,
     crate_name: "mod",
+    cargo_env_compat: true,
+    cargo_pkg_version: "0.3.0",
     srcs: ["tests/mod.rs"],
     test_suites: ["general-tests"],
     auto_gen_config: true,
+    test_options: {
+        unit_test: true,
+    },
     edition: "2018",
     rustlibs: [
         "librand_core",
         "librand_xorshift",
     ],
 }
-
-rust_test_host {
-    name: "rand_xorshift_host_test_tests_mod",
-    defaults: ["rand_xorshift_defaults_mod"],
-    test_options: {
-        unit_test: true,
-    },
-}
-
-rust_test {
-    name: "rand_xorshift_device_test_tests_mod",
-    defaults: ["rand_xorshift_defaults_mod"],
-}
-
-// dependent_library ["feature_list"]
-//   bincode-1.3.3
-//   rand_core-0.6.2
-//   serde-1.0.126 "default,std"
