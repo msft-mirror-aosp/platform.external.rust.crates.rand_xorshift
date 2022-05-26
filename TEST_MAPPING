@@ -5,6 +5,11 @@
       "path": "external/rust/crates/ryu"
     }
   ],
+  "postsubmit": [
+    {
+      "name": "rand_xorshift_test_tests_mod"
+    }
+  ],
   "presubmit": [
     {
       "name": "rand_xorshift_test_tests_mod"
